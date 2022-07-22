@@ -5,15 +5,18 @@
       <div class="row">
         <div class="col-sm-4">
             <h6 class="column-header" *ngIf="activeProducts.length>0">Active Items</h6>
-            <ul *ngIf="totalSelected" class="list-group">
-              <li *ngFor="let item of totalSelected | keyvalue">
+            <div *ngIf="totalSelected">
+              <span class="mr-2" *ngFor="let item of totalSelected | keyvalue">
                 <span>
                   {{item.key}} <span class="badge bg-secondary">{{item.value}}</span>
                 </span>
-              </li>
-            </ul>
+              </span>
+            </div>
             <ul class="list-group" *ngIf="products">
-                <li class="list-group-item active" *ngFor="let product of activeProducts">{{ product.model}} 
+                <li class="list-group-item active text-capitalize" *ngFor="let product of activeProducts">
+                <span class="font-weight-bold"><b>{{ product.type}}:</b> 
+                  {{ product.brand}} - {{ product.model }}
+                </span> 
                 <a href="#" class="btn btn-primary pull-right" (click)="deleteItem(product.id)">X</a></li>
             </ul>
         </div>        

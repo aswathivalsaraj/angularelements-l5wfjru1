@@ -24,6 +24,7 @@ export class HomePageComponent implements OnInit {
       this.totalProductCost = this.products.map(i=>i.price).reduce((a,b)=>a+b, 0);
       this.totalSelected = this.totalProductCost;
       this.title = data.header;
+      this.updateTotalCost();
     });
   }
   public deleteItem(itemId: IProduct["id"]): void {
@@ -53,6 +54,5 @@ export class HomePageComponent implements OnInit {
    // this.totalForDeleted = this.deletedProducts.map(i=>i.price).reduce((a,b)=>a+b, 0);
     this.totalSelected = this.activeProducts.map(item => item.type).reduce((acc:any, curr) => (acc[curr] = (acc[curr] || 0) + 1, acc), {});
     this.totalForDeleted = this.deletedProducts.map(item => item.type).reduce((acc:any, curr) => (acc[curr] = (acc[curr] || 0) + 1, acc), {}); 
-    console.log(this.totalForDeleted);
   }
 }
