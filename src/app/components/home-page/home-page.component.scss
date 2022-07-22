@@ -1,0 +1,10 @@
+.active { border-bottom: 2px dotted #434141;}
+.column-header { color: rgb(18, 9, 59)}
+.header, .footer{ background-color: #0D6DFD; color: white; border-radius: 5px;}
+.flex {
+    display: inline-flex;
+    width: 30%;
+    margin: 5px;
+    padding: 10px;
+    justify-content:space-evenly
+ }
