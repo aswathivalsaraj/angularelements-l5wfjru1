@@ -1,0 +1,14 @@
+{
+  "name": "@wcd/null.angularelements-l5wfjru1",
+  "version": "0.0.0",
+  "description": "",
+  "license": "ISC",
+  "type": "module",
+  "homepage": "{{ homepage }}",
+  "scripts": {
+    "serve": "npx wcd-cli@latest serve 77TiRwP0mMLs3juSH1No --open"
+  },
+  "dependencies": {
+    "lit-html": "^1"
+  }
+}
