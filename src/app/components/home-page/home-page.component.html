@@ -5,22 +5,34 @@
       <div class="row">
         <div class="col-sm-4">
             <h6 class="column-header" *ngIf="activeProducts.length>0">Active Items</h6>
+            <ul *ngIf="totalSelected" class="list-group">
+              <li *ngFor="let item of totalSelected | keyvalue">
+                <span>
+                  {{item.key}} <span class="badge bg-secondary">{{item.value}}</span>
+                </span>
+              </li>
+            </ul>
             <ul class="list-group" *ngIf="products">
                 <li class="list-group-item active" *ngFor="let product of activeProducts">{{ product.model}} 
                 <a href="#" class="btn btn-primary pull-right" (click)="deleteItem(product.id)">X</a></li>
             </ul>
-            <h4 class="text-left mr-2"> Total Price of Active Products: {{ totalSelected }}</h4>  
         </div>        
         <div class="col-sm-8 ">
             <h6 class="column-header text-left" *ngIf="deletedProducts.length>0">Deleted Items</h6>
-              <div *ngFor="let product of deletedProducts" class="card flex">
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group-item" *ngFor="let item of totalForDeleted | keyvalue">
+                <a href="#" class="btn btn-primary">
+                  {{item.key}} <span class="badge bg-secondary">{{item.value}}</span>
+                </a>
+              </li>
+            </ul>
+            <div *ngFor="let product of deletedProducts" class="card flex">
                 <h4 class="text-capitalize"> {{product.type}}</h4>
                 <p>Brand: {{product.brand}}</p>
                 <p>Model: {{product.model}}</p>
                 <p>Price: {{product.price}}</p>
                 <a href="#" class="btn btn-primary pull-right" (click)="restoreItem(product.id)">Restore</a>
               </div>     
-              <h4 *ngIf="deletedProducts.length>0" class="text-left mr-2"> Total Price of deleted Products: {{ totalForDeleted }}</h4>         
         </div>
       </div>
       <div class="footer">       

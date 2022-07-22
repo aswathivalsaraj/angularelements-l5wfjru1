@@ -49,7 +49,10 @@ export class HomePageComponent implements OnInit {
     }    
   }
   private updateTotalCost(): void {
-    this.totalSelected= this.activeProducts.map(i=>i.price).reduce((a,b)=>a+b, 0);
-    this.totalForDeleted = this.deletedProducts.map(i=>i.price).reduce((a,b)=>a+b, 0);
+   // this.totalSelected = this.activeProducts.map(i=>i.price).reduce((a,b)=>a+b, 0);
+   // this.totalForDeleted = this.deletedProducts.map(i=>i.price).reduce((a,b)=>a+b, 0);
+    this.totalSelected = this.activeProducts.map(item => item.type).reduce((acc:any, curr) => (acc[curr] = (acc[curr] || 0) + 1, acc), {});
+    this.totalForDeleted = this.deletedProducts.map(item => item.type).reduce((acc:any, curr) => (acc[curr] = (acc[curr] || 0) + 1, acc), {}); 
+    console.log(this.totalForDeleted);
   }
 }
